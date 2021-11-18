@@ -121,6 +121,10 @@
 
 #include "gstmultifdsink.h"
 
+#if !defined(FIONREAD) && defined(__sun)
+#include <sys/filio.h>
+#endif
+
 #define NOT_IMPLEMENTED 0
 
 GST_DEBUG_CATEGORY_STATIC (multifdsink_debug);
